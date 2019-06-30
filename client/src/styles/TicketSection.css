@@ -1,0 +1,9 @@
+.ticket-table {
+    border: 2px solid green;
+    margin: auto;
+    width: 50%;
+}
+
+table {
+    margin: 0 auto;
+}
