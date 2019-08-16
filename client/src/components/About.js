@@ -1,7 +1,7 @@
 import React from "react";
 
 
-class About extends React.Component {
+class About extends Component {
 
     render() {
         return (
