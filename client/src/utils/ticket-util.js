@@ -3,15 +3,18 @@
 
 // TICKET UTIL FILE
 
+// need to create prod/dev/local env logic
 
 export const goToHref = () => {
     // react-router ?
 
 };
 
-export const getTicket = async (ticketUuid) => {
+export const getTicket = async (ticketId) => {
     // gets one specific ticket based on uuid
-    const url = `localhost:5555/tickets?ticketUuid=${ticketUuid}`;
+    // const url = `localhost:5555/api/tickets/:${ticketId}`;
+    const url = `localhost:5555/api/tickets/5d2a4d037ea1e322e3a32581`;
+
 
     const response = await fetch(url, {
         method: 'GET',
@@ -31,7 +34,7 @@ export const getTicket = async (ticketUuid) => {
 export const getAllTickets = async () => {
     // get all tickets where active == true
     // will use fetch GET
-    const url = 'https://jsonplaceholder.typicode.com/todos/1';
+    const url = 'localhost:5555/api/tickets';
 
     const response = await fetch(url, {
         method: 'GET',
@@ -56,7 +59,7 @@ export const getAllTickets = async () => {
 export const createTicket = async (ticket) => {
     // will use fetch POST
 
-    const url = 'https://jsonplaceholder.typicode.com/todos/1';
+    const url = 'localhost:5555/api/tickets/create';
 
     const response = await fetch(url, {
        method: 'POST',

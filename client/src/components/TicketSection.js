@@ -4,7 +4,11 @@ import '../styles/TicketSection.css';
 import {getAllTickets, getTicket, createTicket, goToHref} from "../utils/ticket-util";
 
 
+
+
+
 class TicketSection extends React.Component {
+
     render () {
 
         const {tickets} = this.props;
@@ -12,11 +16,10 @@ class TicketSection extends React.Component {
 
         // const tickets = getAllTickets();
 
-
         return (
             <div className="ticket-table">
                 <button onClick={() => {
-                    goToHref('/');
+                    console.log(ticket);
                 }}
                 >
                     {'Add'}

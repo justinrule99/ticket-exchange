@@ -7,7 +7,10 @@ import {Route, Link, BrowserRouter as Router} from "react-router-dom";
 import AddTicket from "./components/AddTicket";
 import About from "./components/About";
 
+// could create single page application and get rid of react-router-dom
 
+// google sign in client id: 970856609100-6bc1d8gv7ieu5q4nor0foqkhvedsmf28.apps.googleusercontent.com
+// google sign in client secret: xB2EgXKSVeWRB5xZdz_K7ffv
 
 const routing = (
     <Router>
