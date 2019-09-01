@@ -5,21 +5,39 @@ import {getAllTickets, getTicket, createTicket, goToHref} from "../utils/ticket-
 
 
 
+// store tickets in state? redux?
+// might need node layer to make api calls properly
+// how does this handle auth?
 
+let apiTickets;
 
 class TicketSection extends React.Component {
+
+    async componentDidMount() {
+        // fetch('http://localhost:5555/api/apiTickets')
+        //     .then(res => res.json())
+        //     .then((data) => {
+        //         console.log(data)
+        //     })
+        //     .catch(console.log)
+        //
+        //
+        apiTickets = await getAllTickets();
+        this.setState({tickets: apiTickets});
+        console.log(apiTickets);
+
+    }
 
     render () {
 
         const {tickets} = this.props;
-        console.log(tickets);
-
-        // const tickets = getAllTickets();
+        console.log('apitckets in render'+ apiTickets);
+        // apitickets is still undefined since async
 
         return (
             <div className="ticket-table">
                 <button onClick={() => {
-                    console.log(ticket);
+                    console.log(tickets);
                 }}
                 >
                     {'Add'}
@@ -37,8 +55,10 @@ class TicketSection extends React.Component {
                             <Ticket ticket={ticket} key={ticket.price} />
                         )}
                     </tbody>
-
                 </table>
+                <button onClick={() => {console.log('ehre')}}>
+                    {'Delete'}
+                </button>
             </div>
         );
     }

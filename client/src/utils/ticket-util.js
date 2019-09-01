@@ -12,9 +12,7 @@ export const goToHref = () => {
 
 export const getTicket = async (ticketId) => {
     // gets one specific ticket based on uuid
-    // const url = `localhost:5555/api/tickets/:${ticketId}`;
-    const url = `localhost:5555/api/tickets/5d2a4d037ea1e322e3a32581`;
-
+    const url = `http://localhost:5555/api/tickets/:${ticketId}`;
 
     const response = await fetch(url, {
         method: 'GET',
@@ -26,6 +24,8 @@ export const getTicket = async (ticketId) => {
     if(response.status !== 200){
         return 'Error retrieving data';
     }
+
+    // handle error here
 
     return response.json();
 };
@@ -34,7 +34,7 @@ export const getTicket = async (ticketId) => {
 export const getAllTickets = async () => {
     // get all tickets where active == true
     // will use fetch GET
-    const url = 'localhost:5555/api/tickets';
+    const url = 'http://localhost:5555/api/tickets';
 
     const response = await fetch(url, {
         method: 'GET',
@@ -47,19 +47,20 @@ export const getAllTickets = async () => {
         return 'Error retrieving data';
     }
 
+    console.log('response: '+response);
+    console.log('response: '+response.status);
+
+
     const data = await response.json();
 
     console.log(data);
 
-    // will return array of tickets
     return data;
 
 };
 
 export const createTicket = async (ticket) => {
-    // will use fetch POST
-
-    const url = 'localhost:5555/api/tickets/create';
+    const url = 'http://localhost:5555/api/tickets/create';
 
     const response = await fetch(url, {
        method: 'POST',
@@ -74,4 +75,22 @@ export const createTicket = async (ticket) => {
     }
 
     return response.json();
+};
+
+export const deleteTicket = async (ticketId) => {
+    const url = `http://localhost:5555/api/tickets/:${ticketId}`;
+
+    const response = await fetch(url, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    });
+
+    console.log(response);
+    if (response.status !== 200) {
+        return 'Server Error';
+    }
+
+    return 'Deleted Successfully';
 };
